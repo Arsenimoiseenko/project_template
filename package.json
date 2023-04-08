@@ -4,9 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:html": "linthtml src/**/*.html",
+    "start": "parcel ./src/index.html --open",
+    "lint:css": "stylelint **/*.scss",
+    "lint:js": "eslint ./src",
+    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@linthtml/linthtml": "^0.9.4",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.38.0",
+    "husky": "^8.0.3",
+    "stylelint": "^15.4.0",
+    "stylelint-config-standard-scss": "^7.0.1"
+  }
 }
